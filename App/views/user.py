@@ -40,3 +40,15 @@ def create_user_action():
 @user_views.route('/static/users', methods=['GET'])
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
+
+
+
+@user_views.route('/login', methods=['POST'])
+def login_action():
+    data = request.form
+    user = login(data['username'], data['password'])
+    if user:
+        login_user(user)
+        return 'user logged in!'
+    return 'bad username or password given', 401
+    return render_template('login.html')

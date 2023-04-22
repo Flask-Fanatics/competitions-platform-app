@@ -36,6 +36,7 @@ def login_action():
         login_user(user)
         return 'user logged in!'
     return 'bad username or password given', 401
+    return render_template('login.html')
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_action():
