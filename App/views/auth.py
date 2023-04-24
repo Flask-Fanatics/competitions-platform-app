@@ -36,6 +36,7 @@ def login_action():
         login_user(user)
         return 'user logged in!'
     return 'bad username or password given', 401
+    return render_template('login.html')
 
 @auth_views.route('/logout', methods=['GET'])
 def logout_action():
@@ -70,3 +71,9 @@ def user_login_api():
 @jwt_required()
 def identify_user_action():
     return jsonify({'message': f"username: {jwt_current_user.username}, id : {jwt_current_user.id}"})
+
+
+@auth_views.route('/', methods=['GET'])
+@auth_views.route('/login', methods=['GET'])
+def login_page():
+  return render_template('login.html')

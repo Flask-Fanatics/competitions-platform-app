@@ -4,7 +4,7 @@ from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
 from App.main import create_app
-from App.controllers import ( create_user, get_all_users_json, get_all_users )
+from App.controllers import ( create_user, create_admin, get_all_users_json, get_all_users )
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
@@ -17,6 +17,10 @@ def initialize():
     db.drop_all()
     db.create_all()
     create_user('bob', 'bobpass')
+    create_admin('admin', 'admin')
+    # admin = Admin('1123','admin', 'admin')
+    # db.session.add_all([admin])
+    db.session.commit()
     print('database intialized')
 
 '''
