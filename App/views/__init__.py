@@ -3,7 +3,9 @@
 from .user import user_views
 from .index import index_views
 from .auth import auth_views
+from .part import part_views
+from .uploads import upload_views
 
 
-views = [user_views, index_views, auth_views] 
+views = [user_views, index_views, auth_views, part_views, upload_views] 
 # blueprints must be added to this list

@@ -1,4 +1,4 @@
-from App.models import User
+from App.models import User, Participant, Admin
 from App.database import db
 
 def create_user(username, password):
@@ -30,4 +30,27 @@ def update_user(id, username):
         db.session.add(user)
         return db.session.commit()
     return None
-    
+
+def create_admin(username, password):
+    newuser = Admin(username=username, password=password)
+    try:
+        db.session.add(newuser)
+        db.session.commit()
+        return newuser
+    except:
+        return None
+
+def create_participant(username, password):
+    newuser = Participant(username=username, password=password)
+    try:
+        db.session.add(newuser)
+        db.session.commit()
+        return newuser
+    except:
+        return None
+
+def get_admin(id):
+    return Admin.query.get(id)
+
+def get_participant(id):
+    return Participant.query.get(id)

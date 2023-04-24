@@ -2,6 +2,12 @@
 {% block title %}App Users{% endblock %}
 {% block page %}App Users{% endblock %}
 
+{% block link%}
+    <ul id="nav-mobile" class="right">
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
 {{ super() }}
 
 {% block content %}
