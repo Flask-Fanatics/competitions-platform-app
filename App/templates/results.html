@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+{% block title %}Results{% endblock %}
+{% block page %}Results{% endblock %}
+
+{% block link%}
+    <ul id="nav-mobile" class="right">
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Competition Results</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <!-- <h1>Coding Competition Results</h1> -->
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <h2>Recent Competitions</h2>
+        <div class="row">
+          <div class="col-4">
+            <div class="card">
+              <!-- <img src="competition1.jpg" alt="Competition 1"> -->
+              <div class="card-body">
+                <h3 class="card-title">Competition 1</h3>
+                <p class="card-text">Python</p>
+                <a href="#" class="btn">View Results</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <!-- <img src="competition2.jpg" alt="Competition 2"> -->
+              <div class="card-body">
+                <h3 class="card-title">Competition 2</h3>
+                <p class="card-text">c++</p>
+                <a href="#" class="btn">View Results</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card">
+              <!-- <img src="competition3.jpg" alt="Competition 3"> -->
+              <div class="card-body">
+                <h3 class="card-title">Competition 3</h3>
+                <p class="card-text">Java</p>
+                <a href="#" class="btn">View Results</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>Top Teams</h2>
+        <div class="row">
+          <div class="col-6">
+            <div class="card team-card">
+              <div class="team-card-header">
+                <!-- <img src="team1.jpg" alt="Team 1"> -->
+                <h3 class="team-card-title">Team 1</h3>
+              </div>
+              <div class="team-card-body">
+                <ul class="team-stats">
+                  <li><strong>Rank:</strong> 1</li>
+                  <li><strong>Members:</strong> John Doe, Jane Smith</li>
+                  <li><strong>Score:</strong> 100</li>
+                </ul>
+                <a href="#" class="btn">View Team</a>
+              </div>
+            </div>
+        </div>
+    </main>
+</html>
+{% endblock %}
