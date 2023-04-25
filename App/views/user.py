@@ -41,29 +41,3 @@ def create_user_action():
 def static_user_page():
   return send_from_directory('static', 'static-user.html')
 
-# @user_views.route('/signup', methods=['GET'])
-# def signup_page():
-#   return render_template('signup.html')
-
-
-
-# @user_views.route('/signup', methods=['POST'])
-# def signup_action():
-#   data = request.form  # get data from form submission
-#   newuser = participant(username=data['username'], email=data['email'], password=data['password'])  # create user object
-#   try:
-#     db.session.add(newuser)
-#     db.session.commit()  # save user
-#     login_user(newuser)  # login the user
-#     flash('Account Created!')  # send message
-#     return redirect(url_for('login_action'))  # redirect to homepage
-#   except Exception:  # attempted to insert a duplicate user
-#     db.session.rollback()
-#     flash("username or email already exists")  # error message
-#   return redirect(url_for('login_action'))
-
-# @user_views.route('/', methods=['GET'])
-# @user_views.route('/login', methods=['GET'])
-# def login_page():
-#   return render_template('login.html')
-

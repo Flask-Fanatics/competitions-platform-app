@@ -2,7 +2,11 @@ from flask import Blueprint, render_template, jsonify, request, send_from_direct
 from flask_jwt_extended import jwt_required, current_user as jwt_current_user
 from flask_login import current_user, login_required
 
+
 from.index import index_views
+
+from App.models import Participant
+from App.models import db
 
 from App.controllers import (
     create_user,
@@ -24,14 +28,16 @@ def signup_page():
 @part_views.route('/signup', methods=['POST'])
 def signup_action():
   data = request.form  # get data from form submission
-  newuser = participant(username=data['username'], email=data['email'], password=data['password'])  # create user object
+  newuser = Participant(username=data['username'], password=data['password'])  # create user object
   try:
     db.session.add(newuser)
     db.session.commit()  # save user
     login_user(newuser)  # login the user
     flash('Account Created!')  # send message
-    return redirect(url_for('login_action'))  # redirect to homepage
+    return redirect(url_for('auth_views.login_action'))  # redirect to homepage
   except Exception:  # attempted to insert a duplicate user
     db.session.rollback()
     flash("username or email already exists")  # error message
-  return redirect(url_for('login_action'))
+  return redirect(url_for('auth_views.login_action'))
+
+  

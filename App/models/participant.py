@@ -1,5 +1,4 @@
 from .user import User
-# from .participant import Particpant
 from App.database import db
 
 class Participant(User):
