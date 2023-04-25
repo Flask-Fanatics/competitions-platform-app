@@ -3,7 +3,7 @@ from App.database import db
 
 class Admin(User):
     __tablename__ = 'admin'
-    # id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
     # competitions = db.relationship('Competition', secondary='participant_competition', backref='participants', lazy=True)
 
     def __init__(self, username, password):

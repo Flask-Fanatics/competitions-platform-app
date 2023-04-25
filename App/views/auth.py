@@ -34,15 +34,23 @@ def login_action():
     user = login(data['username'], data['password'])
     if user:
         login_user(user)
-        return 'user logged in!'
+        # return 'user logged in!'
+        return render_template('uploader.html')
     return 'bad username or password given', 401
     return render_template('login.html')
 
+# @auth_views.route('/logout', methods=['GET'])
+# def logout_action():
+#     data = request.form
+#     user = login(data['username'], data['password'])
+#     return 'logged out!'
+
 @auth_views.route('/logout', methods=['GET'])
+@login_required
 def logout_action():
-    data = request.form
-    user = login(data['username'], data['password'])
-    return 'logged out!'
+  logout_user()
+  flash('Logged Out')
+  return redirect(url_for('auth_views.login_page'))
 
 '''
 API Routes
